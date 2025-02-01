@@ -3,7 +3,7 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 
-from analitic.kafka_consumer import start_consumer_loop
+from analitics.kafka_consumer import start_consumer_loop
 
 # from auth.router import router as auth_router
 from config import VersionConfig

@@ -15,7 +15,6 @@ class MongoConfig(BaseSettings):
 class KafkaConfig(BaseSettings):
     BOOTSTRAP_SERVERS: str = Field(...)
     GROUP_ID: str = Field(...)
-    TOPIC: str = Field(...)
 
     class Config:
         env_prefix = "KAFKA_"
