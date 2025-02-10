@@ -3,12 +3,12 @@ from uuid import UUID
 from fastapi import APIRouter, Depends, HTTPException
 from starlette import status
 
-from analitics.dependencies import get_analytics_service
-from analitics.exceptions import DocumentNotFound
-from analitics.schema import EventType
-from analitics.service import AnalyticsService
+from analytics.dependencies import get_analytics_service
+from analytics.exceptions import DocumentNotFound
+from analytics.schema import EventType
+from analytics.service import AnalyticsService
 
-router = APIRouter(prefix="/analitics", tags=["analitics"])
+router = APIRouter(prefix="/analytics", tags=["analytics"])
 
 
 @router.get("/period")

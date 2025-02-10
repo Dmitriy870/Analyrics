@@ -5,8 +5,8 @@ from uuid import UUID
 
 from motor.motor_asyncio import AsyncIOMotorDatabase
 
-from analitics.exceptions import DocumentNotFound, InvalidDate
-from analitics.schema import Event, EventType, PeriodResponse
+from analytics.exceptions import DocumentNotFound, InvalidDate
+from analytics.schema import Event, EventType, PeriodResponse
 
 logger = logging.getLogger(__name__)
 

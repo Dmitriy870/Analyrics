@@ -4,9 +4,9 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 
-from analitics.kafka_consumer import consume_messages
-from analitics.router import router
-from analitics.schema import KafkaTopic
+from analytics.kafka_consumer import consume_messages
+from analytics.router import router
+from analytics.schema import KafkaTopic
 from config import VersionConfig
 from database import MongoDB
 

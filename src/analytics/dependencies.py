@@ -1,4 +1,4 @@
-from analitics.service import AnalyticsService
+from analytics.service import AnalyticsService
 from database import MongoDB
 
 

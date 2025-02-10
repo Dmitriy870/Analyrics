@@ -4,9 +4,9 @@ import logging
 
 from aiokafka import AIOKafkaConsumer
 
-from analitics.dependencies import get_analytics_service
-from analitics.schema import EventType
-from analitics.service import AnalyticsService
+from analytics.dependencies import get_analytics_service
+from analytics.schema import EventType
+from analytics.service import AnalyticsService
 from config import KafkaConfig
 
 kafka_config = KafkaConfig()
