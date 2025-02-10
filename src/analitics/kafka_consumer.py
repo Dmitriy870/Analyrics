@@ -1,8 +1,8 @@
 import asyncio
 import json
+import logging
 
 from aiokafka import AIOKafkaConsumer
-from fastapi import Depends
 
 from analitics.dependencies import get_analytics_service
 from analitics.schema import EventType
@@ -11,41 +11,40 @@ from config import KafkaConfig
 
 kafka_config = KafkaConfig()
 
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
-async def event_consume(service: AnalyticsService = Depends(get_analytics_service)):
+
+async def consume_messages(topic: str):
+    logger.info("Initializing Kafka Consumer...")
+    service: AnalyticsService = await get_analytics_service()
+
     consumer = AIOKafkaConsumer(
-        "events_topic",
-        bootstrap_servers=kafka_config.KAFKA_BOOTSTRAP_SERVERS,
-        group_id=kafka_config.KAFKA_GROUP_ID,
+        topic,
+        bootstrap_servers=kafka_config.BOOTSTRAP_SERVERS,
+        group_id=kafka_config.GROUP_ID,
+        auto_offset_reset=kafka_config.AUTO_OFFSET_RESET,
+        enable_auto_commit=kafka_config.ENABLE_AUTO_COMMIT,
     )
+
+    logger.info("Kafka consumer created. Attempting to start...")
+
     await consumer.start()
+    logger.info("Kafka consumer started successfully and listening to topics: %s", topic)
+
     try:
         async for msg in consumer:
-            event_data = json.loads(msg.value.decode("utf-8"))
-            event_data["event_type"] = EventType.EVENT
-            await service.process_event(event_data)
+            try:
+                event_data = json.loads(msg.value.decode("utf-8"))
+                logger.info("Consumed from '%s': %s", msg.topic, event_data)
+                event_data["event_type"] = EventType.MODEL
+                await service.process_event(event_data)
+                logger.info("After processing event data call")
+            except json.JSONDecodeError:
+                logger.error("Failed to decode message: %s", msg.value)
+    except asyncio.CancelledError:
+        logger.info("Consumer was cancelled.")
     finally:
+        logger.info("Stopping consumer...")
         await consumer.stop()
-
-
-async def model_consume(service: AnalyticsService = Depends(get_analytics_service)):
-    consumer = AIOKafkaConsumer(
-        "models_topic",
-        bootstrap_servers=kafka_config.KAFKA_BOOTSTRAP_SERVERS,
-        group_id=kafka_config.KAFKA_GROUP_ID,
-    )
-    await consumer.start()
-    try:
-        async for msg in consumer:
-            event_data = json.loads(msg.value.decode("utf-8"))
-            event_data["event_type"] = EventType.MODEL
-            await service.process_event(event_data)
-    finally:
-        await consumer.stop()
-
-
-async def start_consumer_loop():
-    loop = asyncio.get_event_loop()
-    event_task = loop.create_task(event_consume())
-    model_task = loop.create_task(model_consume())
-    return event_task, model_task
+        logger.info("Consumer stopped.")

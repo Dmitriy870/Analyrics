@@ -8,26 +8,8 @@ services:
       MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
     ports:
       - "27017:27017"
-    networks:
-      - core_network
-
-  kafka:
-    image: bitnami/kafka:latest
-    container_name: analytics_kafka
-    environment:
-      KAFKA_BROKER_ID: 1
-      KAFKA_CFG_ZOOKEEPER_CONNECT: zookeeper:2181
-      ALLOW_PLAINTEXT_LISTENER: "yes"
-    networks:
-      - core_network
-
-  zookeeper:
-    image: bitnami/zookeeper:latest
-    container_name: analytics_zookeeper
-    environment:
-      ZOOKEEPER_CLIENT_PORT: 2181
-      ZOOKEEPER_TICK_TIME: 2000
-      ALLOW_ANONYMOUS_LOGIN: "yes"
+    volumes:
+      - mongo_data:/data/db
     networks:
       - core_network
 
@@ -39,11 +21,12 @@ services:
     environment:
       MONGO_URI: ${MONGO_URI}
       KAFKA_BROKER: ${KAFKA_BROKER}
+    volumes:
+      - ./src:/app/src
     ports:
       - "8002:8000"
     depends_on:
       - mongo
-      - kafka
     env_file:
       - .env
     networks:

@@ -96,6 +96,50 @@ files = [
 ]
 
 [[package]]
+name = "black"
+version = "25.1.0"
+description = "The uncompromising code formatter."
+optional = false
+python-versions = ">=3.9"
+files = [
+    {file = "black-25.1.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:759e7ec1e050a15f89b770cefbf91ebee8917aac5c20483bc2d80a6c3a04df32"},
+    {file = "black-25.1.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:0e519ecf93120f34243e6b0054db49c00a35f84f195d5bce7e9f5cfc578fc2da"},
+    {file = "black-25.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:055e59b198df7ac0b7efca5ad7ff2516bca343276c466be72eb04a3bcc1f82d7"},
+    {file = "black-25.1.0-cp310-cp310-win_amd64.whl", hash = "sha256:db8ea9917d6f8fc62abd90d944920d95e73c83a5ee3383493e35d271aca872e9"},
+    {file = "black-25.1.0-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:a39337598244de4bae26475f77dda852ea00a93bd4c728e09eacd827ec929df0"},
+    {file = "black-25.1.0-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:96c1c7cd856bba8e20094e36e0f948718dc688dba4a9d78c3adde52b9e6c2299"},
+    {file = "black-25.1.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:bce2e264d59c91e52d8000d507eb20a9aca4a778731a08cfff7e5ac4a4bb7096"},
+    {file = "black-25.1.0-cp311-cp311-win_amd64.whl", hash = "sha256:172b1dbff09f86ce6f4eb8edf9dede08b1fce58ba194c87d7a4f1a5aa2f5b3c2"},
+    {file = "black-25.1.0-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:4b60580e829091e6f9238c848ea6750efed72140b91b048770b64e74fe04908b"},
+    {file = "black-25.1.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:1e2978f6df243b155ef5fa7e558a43037c3079093ed5d10fd84c43900f2d8ecc"},
+    {file = "black-25.1.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:3b48735872ec535027d979e8dcb20bf4f70b5ac75a8ea99f127c106a7d7aba9f"},
+    {file = "black-25.1.0-cp312-cp312-win_amd64.whl", hash = "sha256:ea0213189960bda9cf99be5b8c8ce66bb054af5e9e861249cd23471bd7b0b3ba"},
+    {file = "black-25.1.0-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:8f0b18a02996a836cc9c9c78e5babec10930862827b1b724ddfe98ccf2f2fe4f"},
+    {file = "black-25.1.0-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:afebb7098bfbc70037a053b91ae8437c3857482d3a690fefc03e9ff7aa9a5fd3"},
+    {file = "black-25.1.0-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:030b9759066a4ee5e5aca28c3c77f9c64789cdd4de8ac1df642c40b708be6171"},
+    {file = "black-25.1.0-cp313-cp313-win_amd64.whl", hash = "sha256:a22f402b410566e2d1c950708c77ebf5ebd5d0d88a6a2e87c86d9fb48afa0d18"},
+    {file = "black-25.1.0-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:a1ee0a0c330f7b5130ce0caed9936a904793576ef4d2b98c40835d6a65afa6a0"},
+    {file = "black-25.1.0-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:f3df5f1bf91d36002b0a75389ca8663510cf0531cca8aa5c1ef695b46d98655f"},
+    {file = "black-25.1.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:d9e6827d563a2c820772b32ce8a42828dc6790f095f441beef18f96aa6f8294e"},
+    {file = "black-25.1.0-cp39-cp39-win_amd64.whl", hash = "sha256:bacabb307dca5ebaf9c118d2d2f6903da0d62c9faa82bd21a33eecc319559355"},
+    {file = "black-25.1.0-py3-none-any.whl", hash = "sha256:95e8176dae143ba9097f351d174fdaf0ccd29efb414b362ae3fd72bf0f710717"},
+    {file = "black-25.1.0.tar.gz", hash = "sha256:33496d5cd1222ad73391352b4ae8da15253c5de89b93a80b3e2c8d9a19ec2666"},
+]
+
+[package.dependencies]
+click = ">=8.0.0"
+mypy-extensions = ">=0.4.3"
+packaging = ">=22.0"
+pathspec = ">=0.9.0"
+platformdirs = ">=2"
+
+[package.extras]
+colorama = ["colorama (>=0.4.3)"]
+d = ["aiohttp (>=3.10)"]
+jupyter = ["ipython (>=7.8.0)", "tokenize-rt (>=3.2.0)"]
+uvloop = ["uvloop (>=0.15.2)"]
+
+[[package]]
 name = "cfgv"
 version = "3.4.0"
 description = "Validate configuration and produce human readable error messages."
@@ -105,6 +149,88 @@ files = [
     {file = "cfgv-3.4.0-py2.py3-none-any.whl", hash = "sha256:b7265b1f29fd3316bfcd2b330d63d024f2bfd8bcb8b0272f8e19a504856c48f9"},
     {file = "cfgv-3.4.0.tar.gz", hash = "sha256:e52591d4c5f5dead8e0f673fb16db7949d2cfb3f7da4582893288f0ded8fe560"},
 ]
+
+[[package]]
+name = "click"
+version = "8.1.8"
+description = "Composable command line interface toolkit"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "click-8.1.8-py3-none-any.whl", hash = "sha256:63c132bbbed01578a06712a2d1f497bb62d9c1c0d329b7903a866228027263b2"},
+    {file = "click-8.1.8.tar.gz", hash = "sha256:ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"},
+]
+
+[package.dependencies]
+colorama = {version = "*", markers = "platform_system == \"Windows\""}
+
+[[package]]
+name = "colorama"
+version = "0.4.6"
+description = "Cross-platform colored terminal text."
+optional = false
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
+files = [
+    {file = "colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"},
+    {file = "colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"},
+]
+
+[[package]]
+name = "confluent-kafka"
+version = "2.8.0"
+description = "Confluent's Python client for Apache Kafka"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "confluent_kafka-2.8.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:1ecac5681dbef34f30271c0a0a0a23b7221ae9c560e78415dbf4555e7cd7913e"},
+    {file = "confluent_kafka-2.8.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:b6526119b466d63acb1c9f04b9f31077089c831c3087b5b2026cf856d6587d07"},
+    {file = "confluent_kafka-2.8.0-cp310-cp310-manylinux_2_28_aarch64.whl", hash = "sha256:99505cbe7b42da288dfbc827cd5d11ca1c51ec66a7ba6c0d2faca88a01e34530"},
+    {file = "confluent_kafka-2.8.0-cp310-cp310-manylinux_2_28_x86_64.whl", hash = "sha256:3d7bf431a544f70fc306b3f0dfe6c81439c1479e84ed0281214b97d919e7412e"},
+    {file = "confluent_kafka-2.8.0-cp310-cp310-win_amd64.whl", hash = "sha256:7b38bdc076689abf2844c7e5dd603eb785be5265091f1db5a95d93a5400f51cf"},
+    {file = "confluent_kafka-2.8.0-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:5de7ab587ecdc153a029d992e7d470fc68ab943e38931b18fc4a01074afd5c5c"},
+    {file = "confluent_kafka-2.8.0-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:52a87d1a73ad91d4f81e35a8e6e961a5ad0c49ecdb198e47bd106262e968253e"},
+    {file = "confluent_kafka-2.8.0-cp311-cp311-manylinux_2_28_aarch64.whl", hash = "sha256:f03b12d009cfb16649b0e51c06514312d5cbbbe9b06e71cf4ad781b378f8b79f"},
+    {file = "confluent_kafka-2.8.0-cp311-cp311-manylinux_2_28_x86_64.whl", hash = "sha256:1a01feeac7f27bff079ad1a29f1cf1b149235a975d67d7de20c1935f44b14293"},
+    {file = "confluent_kafka-2.8.0-cp311-cp311-win_amd64.whl", hash = "sha256:69bfeeecca6077592e3349811f564602da3cbea328c78e2ed80c8de6ebd36634"},
+    {file = "confluent_kafka-2.8.0-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:80bf43c098df04008dd6a517a9f745b67885af9c35c09d220f4d19661ae4d647"},
+    {file = "confluent_kafka-2.8.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:3f5e5b18c7acf50777545e817e563b0fa9c74badbabf30474665c03ae8ddcc23"},
+    {file = "confluent_kafka-2.8.0-cp312-cp312-manylinux_2_28_aarch64.whl", hash = "sha256:c540935d89acf1bc173fddd0b9b978ece348345f5a0fccf549ea8663cfa5152c"},
+    {file = "confluent_kafka-2.8.0-cp312-cp312-manylinux_2_28_x86_64.whl", hash = "sha256:79ae80fd9aa0d71689d7189591faf00354907b728c172f4f97a6d23797972025"},
+    {file = "confluent_kafka-2.8.0-cp312-cp312-win_amd64.whl", hash = "sha256:68ebba11c2a33f530d62318c997d40b77e627bfa821683bede0edb043d99504f"},
+    {file = "confluent_kafka-2.8.0-cp313-cp313-macosx_13_0_arm64.whl", hash = "sha256:dd3bc67d589dd486d128a159e918ecf3765f8154474edf9f6f701f701de735a1"},
+    {file = "confluent_kafka-2.8.0-cp313-cp313-macosx_13_0_x86_64.whl", hash = "sha256:4c0e655df9faef450654700db3fda163ddbc4b68f5bf5c7633cf1bf9d932d892"},
+    {file = "confluent_kafka-2.8.0-cp313-cp313-manylinux_2_28_aarch64.whl", hash = "sha256:abff7c4853e2d118563229329ca0a1f148ee5004cbcb9a8dad9dc8e796fcc477"},
+    {file = "confluent_kafka-2.8.0-cp313-cp313-manylinux_2_28_x86_64.whl", hash = "sha256:e75230b51456de5cfaefe94c35f3de5101864d8c21518f114d5cd9dd1d7d43b1"},
+    {file = "confluent_kafka-2.8.0-cp313-cp313-win_amd64.whl", hash = "sha256:fd8181d2866dd182c3247f61740cd2bc1526c9ae1d9e541cd96c44f0f72d4460"},
+    {file = "confluent_kafka-2.8.0-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:d710286091a1bb82f5b52b5b7602f9e3d54a5e179e24f073dabc8482db1e89a5"},
+    {file = "confluent_kafka-2.8.0-cp37-cp37m-manylinux_2_28_aarch64.whl", hash = "sha256:4eba9658accb8bd17c5e230b887e966fdd96c98f455150932cc619bf495292ef"},
+    {file = "confluent_kafka-2.8.0-cp37-cp37m-manylinux_2_28_x86_64.whl", hash = "sha256:959209ca6259a1cc18598d171d0f65aa7399bc9d56839b1ef3999e7f7cda81b3"},
+    {file = "confluent_kafka-2.8.0-cp37-cp37m-win_amd64.whl", hash = "sha256:762a80920d675265cecb786a709a976c105f5cae6ec830ecaaae048cdbfe61e5"},
+    {file = "confluent_kafka-2.8.0-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:162419f82072a793ca1da926bbc3e0864b50276c053d7977e351321ed5ab770a"},
+    {file = "confluent_kafka-2.8.0-cp38-cp38-macosx_11_0_arm64.whl", hash = "sha256:6257a8b45555b79f59aae4254e32b9d3a2b9fe7202e6eb74e2f26b110a2205c1"},
+    {file = "confluent_kafka-2.8.0-cp38-cp38-manylinux_2_28_aarch64.whl", hash = "sha256:1a0a3b2283b233477fdce1913d59d443fbc188c7ee7aa382fc5ae470b91ff43e"},
+    {file = "confluent_kafka-2.8.0-cp38-cp38-manylinux_2_28_x86_64.whl", hash = "sha256:8584a98538fceb374690344697d561c271ce03e9799044ebf986c1e2b1d22a6a"},
+    {file = "confluent_kafka-2.8.0-cp38-cp38-win_amd64.whl", hash = "sha256:3a8d336c946e456be1737b9760f8dbe8f8acfbc7e14234c821e43b3016be2040"},
+    {file = "confluent_kafka-2.8.0-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:55daa621c31603372367fbbf4b66b1b0475e3e89a9fcc0de5c58509455b52c2d"},
+    {file = "confluent_kafka-2.8.0-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:60d85216f7598e0911303554664c0d432815a115ed06a0ea19e04059dcbba2d7"},
+    {file = "confluent_kafka-2.8.0-cp39-cp39-manylinux_2_28_aarch64.whl", hash = "sha256:1d13d8b638d4d6cb66ca7c80e47104654fdeb22e645b7fdaacbc06761c553ba8"},
+    {file = "confluent_kafka-2.8.0-cp39-cp39-manylinux_2_28_x86_64.whl", hash = "sha256:5445598ee20733225fd4aa871845f08defcd1882be1d2c4876a501cdfadf2bbd"},
+    {file = "confluent_kafka-2.8.0-cp39-cp39-win_amd64.whl", hash = "sha256:55d7b3e3571208a03b539f587609aa21e16b42b032c357e9fee7f336cc07b71d"},
+    {file = "confluent_kafka-2.8.0.tar.gz", hash = "sha256:56c4aa8e9de6f6e8e3ecf86d396372e76631ec75b107cdb5248c7405ec7c5fa1"},
+]
+
+[package.extras]
+all = ["attrs", "attrs", "avro (>=1.11.1,<2)", "avro (>=1.11.1,<2)", "azure-identity", "azure-identity", "azure-keyvault-keys", "azure-keyvault-keys", "boto3", "boto3", "cachetools", "cachetools", "cel-python (>=0.1.5)", "cel-python (>=0.1.5)", "confluent-kafka", "fastapi", "fastavro (<1.8.0)", "fastavro (<1.8.0)", "fastavro (<2)", "fastavro (<2)", "flake8", "google-api-core", "google-api-core", "google-auth", "google-auth", "google-cloud-kms", "google-cloud-kms", "googleapis-common-protos", "googleapis-common-protos", "hkdf (==0.0.3)", "hkdf (==0.0.3)", "httpx", "httpx", "hvac", "hvac", "jsonata-python", "jsonata-python", "jsonschema", "jsonschema", "opentelemetry-distro", "opentelemetry-exporter-otlp", "protobuf", "protobuf", "psutil", "pydantic", "pyrsistent", "pyrsistent", "pytest", "pytest-timeout", "pytest_cov", "pyyaml (>=6.0.0)", "pyyaml (>=6.0.0)", "requests", "requests", "requests-mock", "respx", "six", "sphinx", "sphinx-rtd-theme", "tink", "tink", "urllib3 (<2.0.0)", "urllib3 (>=2.0.0,<3)", "uvicorn"]
+avro = ["attrs", "avro (>=1.11.1,<2)", "cachetools", "fastavro (<1.8.0)", "fastavro (<2)", "httpx", "requests"]
+dev = ["attrs", "attrs", "avro (>=1.11.1,<2)", "avro (>=1.11.1,<2)", "azure-identity", "azure-identity", "azure-keyvault-keys", "azure-keyvault-keys", "boto3", "boto3", "cachetools", "cachetools", "cel-python (>=0.1.5)", "cel-python (>=0.1.5)", "confluent-kafka", "fastapi", "fastavro (<1.8.0)", "fastavro (<1.8.0)", "fastavro (<2)", "fastavro (<2)", "flake8", "google-api-core", "google-api-core", "google-auth", "google-auth", "google-cloud-kms", "google-cloud-kms", "googleapis-common-protos", "googleapis-common-protos", "hkdf (==0.0.3)", "hkdf (==0.0.3)", "httpx", "httpx", "hvac", "hvac", "jsonata-python", "jsonata-python", "jsonschema", "jsonschema", "protobuf", "protobuf", "pydantic", "pyrsistent", "pyrsistent", "pytest", "pytest-timeout", "pytest_cov", "pyyaml (>=6.0.0)", "pyyaml (>=6.0.0)", "requests", "requests", "requests-mock", "respx", "six", "sphinx", "sphinx-rtd-theme", "tink", "tink", "urllib3 (<2.0.0)", "urllib3 (>=2.0.0,<3)", "uvicorn"]
+docs = ["attrs", "avro (>=1.11.1,<2)", "azure-identity", "azure-keyvault-keys", "boto3", "cachetools", "cel-python (>=0.1.5)", "fastavro (<1.8.0)", "fastavro (<2)", "google-api-core", "google-auth", "google-cloud-kms", "googleapis-common-protos", "hkdf (==0.0.3)", "httpx", "hvac", "jsonata-python", "jsonschema", "protobuf", "pyrsistent", "pyyaml (>=6.0.0)", "requests", "sphinx", "sphinx-rtd-theme", "tink"]
+examples = ["attrs", "avro (>=1.11.1,<2)", "azure-identity", "azure-keyvault-keys", "boto3", "cachetools", "cel-python (>=0.1.5)", "confluent-kafka", "fastapi", "fastavro (<1.8.0)", "fastavro (<2)", "google-api-core", "google-auth", "google-cloud-kms", "googleapis-common-protos", "hkdf (==0.0.3)", "httpx", "hvac", "jsonata-python", "jsonschema", "protobuf", "pydantic", "pyrsistent", "pyyaml (>=6.0.0)", "requests", "six", "tink", "uvicorn"]
+json = ["attrs", "cachetools", "httpx", "jsonschema", "pyrsistent"]
+protobuf = ["attrs", "cachetools", "googleapis-common-protos", "httpx", "protobuf"]
+rules = ["attrs", "azure-identity", "azure-keyvault-keys", "boto3", "cachetools", "cel-python (>=0.1.5)", "google-api-core", "google-auth", "google-cloud-kms", "hkdf (==0.0.3)", "httpx", "hvac", "jsonata-python", "pyyaml (>=6.0.0)", "tink"]
+schemaregistry = ["attrs", "cachetools", "httpx"]
+soaktest = ["opentelemetry-distro", "opentelemetry-exporter-otlp", "psutil"]
+tests = ["attrs", "avro (>=1.11.1,<2)", "azure-identity", "azure-keyvault-keys", "boto3", "cachetools", "cel-python (>=0.1.5)", "fastavro (<1.8.0)", "fastavro (<2)", "flake8", "google-api-core", "google-auth", "google-cloud-kms", "googleapis-common-protos", "hkdf (==0.0.3)", "httpx", "hvac", "jsonata-python", "jsonschema", "protobuf", "pyrsistent", "pytest", "pytest-timeout", "pytest_cov", "pyyaml (>=6.0.0)", "requests", "requests-mock", "respx", "tink", "urllib3 (<2.0.0)", "urllib3 (>=2.0.0,<3)"]
 
 [[package]]
 name = "distlib"
@@ -174,6 +300,17 @@ testing = ["covdefaults (>=2.3)", "coverage (>=7.6.10)", "diff-cover (>=9.2.1)",
 typing = ["typing-extensions (>=4.12.2)"]
 
 [[package]]
+name = "h11"
+version = "0.14.0"
+description = "A pure-Python, bring-your-own-I/O implementation of HTTP/1.1"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "h11-0.14.0-py3-none-any.whl", hash = "sha256:e3fe4ac4b851c468cc8363d500db52c2ead036020723024a109d37346efaa761"},
+    {file = "h11-0.14.0.tar.gz", hash = "sha256:8f19fbbe99e72420ff35c00b27a34cb9937e902a8b810e2c88300c6f0a3b699d"},
+]
+
+[[package]]
 name = "identify"
 version = "2.6.6"
 description = "File identification library for Python"
@@ -202,6 +339,21 @@ files = [
 all = ["flake8 (>=7.1.1)", "mypy (>=1.11.2)", "pytest (>=8.3.2)", "ruff (>=0.6.2)"]
 
 [[package]]
+name = "isort"
+version = "6.0.0"
+description = "A Python utility / library to sort Python imports."
+optional = false
+python-versions = ">=3.9.0"
+files = [
+    {file = "isort-6.0.0-py3-none-any.whl", hash = "sha256:567954102bb47bb12e0fae62606570faacddd441e45683968c8d1734fb1af892"},
+    {file = "isort-6.0.0.tar.gz", hash = "sha256:75d9d8a1438a9432a7d7b54f2d3b45cad9a4a0fdba43617d9873379704a8bdf1"},
+]
+
+[package.extras]
+colors = ["colorama"]
+plugins = ["setuptools"]
+
+[[package]]
 name = "motor"
 version = "3.6.1"
 description = "Non-blocking MongoDB driver for Tornado or asyncio"
@@ -226,6 +378,17 @@ test = ["aiohttp (>=3.8.7)", "cffi (>=1.17.0rc1)", "mockupdb", "pymongo[encrypti
 zstd = ["pymongo[zstd] (>=4.5,<5)"]
 
 [[package]]
+name = "mypy-extensions"
+version = "1.0.0"
+description = "Type system extensions for programs checked with the mypy type checker."
+optional = false
+python-versions = ">=3.5"
+files = [
+    {file = "mypy_extensions-1.0.0-py3-none-any.whl", hash = "sha256:4392f6c0eb8a5668a69e23d168ffa70f0be9ccfd32b5cc2d26a34ae5b844552d"},
+    {file = "mypy_extensions-1.0.0.tar.gz", hash = "sha256:75dbf8955dc00442a438fc4d0666508a9a97b6bd41aa2f0ffe9d2f2725af0782"},
+]
+
+[[package]]
 name = "nodeenv"
 version = "1.9.1"
 description = "Node.js virtual environment builder"
@@ -245,6 +408,17 @@ python-versions = ">=3.8"
 files = [
     {file = "packaging-24.2-py3-none-any.whl", hash = "sha256:09abb1bccd265c01f4a3aa3f7a7db064b36514d2cba19a2f694fe6150451a759"},
     {file = "packaging-24.2.tar.gz", hash = "sha256:c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"},
+]
+
+[[package]]
+name = "pathspec"
+version = "0.12.1"
+description = "Utility library for gitignore style pattern matching of file paths."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "pathspec-0.12.1-py3-none-any.whl", hash = "sha256:a0d503e138a4c123b27490a4f7beda6a01c6f288df0e4a8b79c7eb0dc7b4cc08"},
+    {file = "pathspec-0.12.1.tar.gz", hash = "sha256:a482d51503a1ab33b1c67a6c3813a26953dbdc71c31dacaef9a838c4e29f5712"},
 ]
 
 [[package]]
@@ -630,6 +804,24 @@ files = [
 ]
 
 [[package]]
+name = "uvicorn"
+version = "0.34.0"
+description = "The lightning-fast ASGI server."
+optional = false
+python-versions = ">=3.9"
+files = [
+    {file = "uvicorn-0.34.0-py3-none-any.whl", hash = "sha256:023dc038422502fa28a09c7a30bf2b6991512da7dcdb8fd35fe57cfc154126f4"},
+    {file = "uvicorn-0.34.0.tar.gz", hash = "sha256:404051050cd7e905de2c9a7e61790943440b3416f49cb409f965d9dcd0fa73e9"},
+]
+
+[package.dependencies]
+click = ">=7.0"
+h11 = ">=0.8"
+
+[package.extras]
+standard = ["colorama (>=0.4)", "httptools (>=0.6.3)", "python-dotenv (>=0.13)", "pyyaml (>=5.1)", "uvloop (>=0.14.0,!=0.15.0,!=0.15.1)", "watchfiles (>=0.13)", "websockets (>=10.4)"]
+
+[[package]]
 name = "virtualenv"
 version = "20.29.1"
 description = "Virtual Python Environment builder"
@@ -652,4 +844,4 @@ test = ["covdefaults (>=2.3)", "coverage (>=7.2.7)", "coverage-enable-subprocess
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "59f6794daf6c6876fa67077c104b54e77c0ceb3c30763c15fe42f822ae081b85"
+content-hash = "56a58410ddee6431511833b8438616829cb922f2f6e8e53ab473296a5f6135f5"

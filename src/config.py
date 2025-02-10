@@ -1,3 +1,5 @@
+from typing import List
+
 from pydantic import Field
 from pydantic_settings import BaseSettings
 
@@ -15,6 +17,9 @@ class MongoConfig(BaseSettings):
 class KafkaConfig(BaseSettings):
     BOOTSTRAP_SERVERS: str = Field(...)
     GROUP_ID: str = Field(...)
+    AUTO_OFFSET_RESET: str = Field(default="latest")
+    ENABLE_AUTO_COMMIT: bool = Field(default=True)
+    TOPICS: List[str] = Field(default=["models_topic", "events_topic"])
 
     class Config:
         env_prefix = "KAFKA_"

@@ -1,11 +1,7 @@
-from fastapi import Depends
-from motor.motor_asyncio import AsyncIOMotorDatabase
-from service import AnalyticsService
-
-from database import get_mongo_db
+from analitics.service import AnalyticsService
+from database import MongoDB
 
 
-async def get_analytics_service(
-    db: AsyncIOMotorDatabase = Depends(get_mongo_db),
-) -> AnalyticsService:
+async def get_analytics_service() -> AnalyticsService:
+    db = await MongoDB.get_db()
     return AnalyticsService(db)
