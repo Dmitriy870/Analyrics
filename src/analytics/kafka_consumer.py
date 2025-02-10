@@ -38,6 +38,7 @@ async def consume_messages(topic: str):
                 event_data = json.loads(msg.value.decode("utf-8"))
                 logger.info("Consumed from '%s': %s", msg.topic, event_data)
                 event_data["event_type"] = EventType.MODEL
+                logger.info("before process_event")
                 await service.process_event(event_data)
                 logger.info("After processing event data call")
             except json.JSONDecodeError:

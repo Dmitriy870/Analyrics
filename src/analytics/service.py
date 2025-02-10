@@ -50,6 +50,7 @@ class AnalyticsService:
     async def process_event(self, event_data: dict) -> None:
         logger.info("Processing event(before event create)")
         event_data = self.convert_uuid_to_str(event_data)
+        logger.info("Processing event(after convert)")
         event = Event(**event_data)
         await self.save_event(event)
 
@@ -59,7 +60,9 @@ class AnalyticsService:
             await self.process_model_event(event)
 
     async def save_event(self, event: Event) -> None:
+        logger.info("Saving event(after event create)")
         await self.events.insert_one(event.model_dump(by_alias=True))
+        logger.info("succesfully saved event(after event create)")
 
     async def process_model_event(self, event: Event) -> None:
         if event.event_name.startswith("get_"):

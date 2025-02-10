@@ -36,7 +36,7 @@ class Event(BaseModel):
     id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
     event_type: EventType = Field(...)
     event_name: str = Field(...)
-    received_by: str = Field(...)
+    received_from: str = Field(...)
     model_type: str | None = Field(None)
     model_data: Dict[str, Any] | None = Field(None)
     entity_id: str | None = Field(None)
