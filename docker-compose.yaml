@@ -8,6 +8,8 @@ services:
       MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
     ports:
       - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
     networks:
       - core_network
 
@@ -33,3 +35,6 @@ services:
 networks:
   core_network:
     external: true
+
+volumes:
+  mongo_data:

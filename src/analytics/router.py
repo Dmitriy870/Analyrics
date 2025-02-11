@@ -1,6 +1,6 @@
 from uuid import UUID
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Query
 from starlette import status
 
 from analytics.dependencies import get_analytics_service
@@ -13,9 +13,9 @@ router = APIRouter(prefix="/analytics", tags=["analytics"])
 
 @router.get("/period")
 async def get_period_stats(
-    start_date: str,
-    end_date: str,
-    field: str,
+    start_date: str = Query(..., description="Start date"),
+    end_date: str = Query(..., description="End date"),
+    field: str = Query(..., description="Field name"),
     service: AnalyticsService = Depends(get_analytics_service),
 ):
     return await service.get_period_stats(start_date, end_date, field)
@@ -31,13 +31,13 @@ async def get_daily_stats(date: str, service: AnalyticsService = Depends(get_ana
 
 @router.get("/events")
 async def get_events(
-    user_id: UUID | None = None,
-    event_type: EventType | None = None,
-    event_name: str | None = None,
-    start_date: str | None = None,
-    end_date: str | None = None,
-    page: int = 1,
-    limit: int = 100,
+    user_id: UUID | None = Query(None, description="User id"),
+    event_type: EventType | None = Query(None, description="Event type"),
+    event_name: str | None = Query(None, description="Event name"),
+    start_date: str | None = Query(None, description="Start date"),
+    end_date: str | None = Query(None, description="End date"),
+    page: int = Query(1, description="Page number"),
+    limit: int = Query(10, description="Limit number"),
     service: AnalyticsService = Depends(get_analytics_service),
 ):
     return await service.get_events(

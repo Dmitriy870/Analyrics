@@ -110,25 +110,21 @@ class AnalyticsService:
         start_date: str | None = None,
         end_date: str | None = None,
         page: int = 1,
-        limit: int = 100,
+        limit: int = 10,
     ) -> list[Event]:
         filter_query: dict[str, Any] = {}
 
         if user_id:
             filter_query["user_id"] = str(user_id)
-
         if event_type:
             filter_query["event_type"] = event_type
-
         if event_name is not None:
             # filter_query["event_name"] = {"$regex": f"^{event_name}"}
             filter_query["event_name"] = event_name
-
         if start_date and not self.is_valid_date(start_date):
             raise ValueError("Invalid start_date format")
         if end_date and not self.is_valid_date(end_date):
             raise ValueError("Invalid end_date format")
-
         if start_date and end_date:
             filter_query["received_at"] = {"$gte": start_date, "$lte": end_date}
         elif start_date:
@@ -137,8 +133,6 @@ class AnalyticsService:
             filter_query["received_at"] = {"$lte": end_date}
 
         skip = (page - 1) * limit
-
         cursor = self.events.find(filter_query).sort("received_at", -1).skip(skip).limit(limit)
-
         docs = await cursor.to_list(limit)
         return [Event(**doc) for doc in docs]
