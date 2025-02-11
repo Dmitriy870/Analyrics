@@ -2,7 +2,10 @@ import asyncio
 import logging
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI
+import aiohttp
+from fastapi import FastAPI, Request, status
+from starlette.middleware.base import BaseHTTPMiddleware
+from starlette.responses import JSONResponse
 
 from analytics.kafka_consumer import consume_messages
 from analytics.router import router
@@ -29,10 +32,48 @@ async def lifespan(app: FastAPI):
         except asyncio.CancelledError:
             logger.info("Consumer task is cancelled")
         try:
-            await consumer_model_task
+            await consumer_event_task
         except asyncio.CancelledError:
             logger.info("Consumer task is cancelled")
 
 
+class AdminAuthMiddleware(BaseHTTPMiddleware):
+    async def dispatch(self, request: Request, call_next):
+
+        if request.url.path.startswith(("/docs", "/redoc", "/openapi.json")):
+            return await call_next(request)
+
+        auth_header = request.headers.get("Authorization")
+        if not auth_header or not auth_header.startswith("Bearer "):
+            return JSONResponse(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                content={"detail": "Missing or invalid token"},
+            )
+
+        token = auth_header.split(" ")[1]
+        async with aiohttp.ClientSession() as session:
+            async with session.get(
+                f"{version_config.AUTH_SERVICE_URL}/users/me",
+                headers={"Authorization": f"Bearer {token}"},
+            ) as response:
+                if response.status != 200:
+                    return JSONResponse(
+                        status_code=status.HTTP_401_UNAUTHORIZED,
+                        content={"detail": "Missing or invalid token"},
+                    )
+                result = await response.json()
+
+        if result.get("role") != "admin":
+            return JSONResponse(
+                status_code=status.HTTP_403_FORBIDDEN, content={"detail": "Permission denied"}
+            )
+
+        response = await call_next(request)
+        return response
+
+
 app = FastAPI(lifespan=lifespan)
+
+
+app.add_middleware(AdminAuthMiddleware)
 app.include_router(router, prefix=version_config.API_V1_PREFIX)

@@ -27,3 +27,4 @@ class KafkaConfig(BaseSettings):
 
 class VersionConfig(BaseSettings):
     API_V1_PREFIX: str = Field(default="/api/v1")
+    AUTH_SERVICE_URL: str = Field(default="http://auth_app:8000/api/v1/auth")

@@ -1,10 +1,9 @@
 from uuid import UUID
 
-from fastapi import APIRouter, Depends, HTTPException, Query
-from starlette import status
+from fastapi import APIRouter, Depends, Query
 
 from analytics.dependencies import get_analytics_service
-from analytics.exceptions import DocumentNotFound
+from analytics.exceptions import DocumentNotFound, DocumentNotFoundException
 from analytics.schema import EventType
 from analytics.service import AnalyticsService
 
@@ -26,7 +25,7 @@ async def get_daily_stats(date: str, service: AnalyticsService = Depends(get_ana
     try:
         return await service.get_daily_stats(date)
     except DocumentNotFound:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
+        raise DocumentNotFoundException
 
 
 @router.get("/events")
